@@ -19,7 +19,7 @@ class Menu extends React.Component{
 
     render(){
         return(
-            <div class="menu-container">
+            <div className="menu-container">
                 <h1>hjkhj</h1>
             </div>
         );

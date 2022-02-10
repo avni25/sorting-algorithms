@@ -45,3 +45,8 @@
     z-index:100;
 }
 
+.bar{
+  float: right;
+  margin-right: 1px;
+}
+

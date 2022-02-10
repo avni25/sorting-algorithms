@@ -12,7 +12,7 @@ class Visualizer extends React.Component{
 
     render(){
         return(
-            <div>
+            <div class ="vis-container">
                 <h1>visual</h1>
             </div>
         );

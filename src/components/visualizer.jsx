@@ -29,7 +29,7 @@ class Visualizer extends React.Component{
         }else if(val === 'merge-sort'){
             console.log("1");
             this.setState({
-                arr: mergeSort(this.state.arr)
+                arr: mergeSort(this.state.arr).reverse()
             });
             console.log("2");
         }

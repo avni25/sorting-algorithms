@@ -1,43 +1,54 @@
 import React from 'react';
-import {mergeSort} from '../algorithms/sortinAlgos.js';
+import {createRandomarr, mergeSort, quicksort} from '../algorithms/sortinAlgos.js';
+
+let ARRAY_LEN = 200;
+let ARRAY_MIN = 10;
+let ARRAY_MAX = 500;
 
 class Visualizer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            arr: this.createRandomarr(100, 10, 500)
+            arr: createRandomarr(ARRAY_LEN, ARRAY_MIN, ARRAY_MAX),
+            time: 0.0
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
-    createRandomarr(len, from, to){
-        let arr = [];
-        for (let i = 0; i < len; i++) {
-            let val = Math.floor(Math.random() * (to - from + 1) + from);
-            arr.push(val);            
-        }
-
-        return arr;
-    }
+    
 
     handleClick(e){
-        let val = e.target.innerText;        
+        let val = e.target.innerText;   
+        console.time("qwe");
         if(val === 'new-array'){
             this.setState({
-                arr: this.createRandomarr(100, 10, 500)
+                ...this.state,
+                arr: createRandomarr(ARRAY_LEN, ARRAY_MIN, ARRAY_MAX)                
             });
         }else if(val === 'merge-sort'){
-            console.log("1");
+            
             this.setState({
-                arr: mergeSort(this.state.arr).reverse()
-            });
-            console.log("2");
+                ...this.state,
+                arr: mergeSort(this.state.arr).reverse()                
+            });            
+        }else if(val === 'quick-sort'){
+            
+            this.setState({
+                ...this.state,
+                arr: quicksort(this.state.arr).reverse()                
+            });            
+        }else if(val === 'bubble-sort'){
+            
+            this.setState({
+                ...this.state,
+                arr: mergeSort(this.state.arr).reverse()                
+            });            
         }
+
+        
     }
 
-    mergeSort(arr){
-
-    }
+    
 
 
 
@@ -51,10 +62,11 @@ class Visualizer extends React.Component{
                 <div className="menu-container">
                     <button onClick={this.handleClick}>new-array</button> 
                     <button onClick={this.handleClick}>merge-sort</button> 
-                    <button onClick={this.handleClick}>New Array</button> 
-                    <button onClick={this.handleClick}>New Array</button> 
-                    <button onClick={this.handleClick}>New Array</button>  
+                    <button onClick={this.handleClick}>quick-sort</button> 
+                    <button onClick={this.handleClick}>bubble-sort</button> 
+                     
                 </div>
+                <h4>{()=>(console.timeEnd("qwe"))}</h4>
                 <div className ="vis-container">
                 {this.state.arr.map((item, index) => (
                     <div className='bar' key={index} style={{

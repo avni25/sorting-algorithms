@@ -2,7 +2,7 @@ import React from 'react';
 import {createRandomarr, mergeSort, quickSort, bubbleSort} from '../algorithms/sortinAlgos.js';
 import pg from '../algorithms/pg.js';
 
-let ARRAY_LEN = 200;
+let ARRAY_LEN = 100;
 let ARRAY_MIN = 10;
 let ARRAY_MAX = 500;
 
@@ -52,20 +52,15 @@ class Visualizer extends React.Component{
 
     
 
-
-
-
-
-
     render(){
         
         return(
             <div > 
                 <div className="menu-container">
-                    <button onClick={this.handleClick}>new-array</button> 
-                    <button onClick={this.handleClick}>merge-sort</button> 
-                    <button onClick={this.handleClick}>quick-sort</button> 
-                    <button onClick={this.handleClick}>bubble-sort</button> 
+                    <button className="button-3" onClick={this.handleClick}>new-array</button> 
+                    <button className="button-3" onClick={this.handleClick}>merge-sort</button> 
+                    <button className="button-3" onClick={this.handleClick}>quick-sort</button> 
+                    <button className="button-3" onClick={this.handleClick}>bubble-sort</button> 
                      
                 </div>
                 <h4>{()=>(console.timeEnd("qwe"))}</h4>

@@ -1,5 +1,6 @@
 import React from 'react';
-import {createRandomarr, mergeSort, quicksort} from '../algorithms/sortinAlgos.js';
+import {createRandomarr, mergeSort, quickSort, bubbleSort} from '../algorithms/sortinAlgos.js';
+import pg from '../algorithms/pg.js';
 
 let ARRAY_LEN = 200;
 let ARRAY_MIN = 10;
@@ -19,7 +20,8 @@ class Visualizer extends React.Component{
 
     handleClick(e){
         let val = e.target.innerText;   
-        console.time("qwe");
+        // console.time("qwe");
+        pg.asd();
         if(val === 'new-array'){
             this.setState({
                 ...this.state,
@@ -35,13 +37,13 @@ class Visualizer extends React.Component{
             
             this.setState({
                 ...this.state,
-                arr: quicksort(this.state.arr).reverse()                
+                arr: quickSort(this.state.arr).reverse()                
             });            
         }else if(val === 'bubble-sort'){
             
             this.setState({
                 ...this.state,
-                arr: mergeSort(this.state.arr).reverse()                
+                arr: bubbleSort(this.state.arr).reverse()                
             });            
         }
 

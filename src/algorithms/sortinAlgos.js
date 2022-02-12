@@ -10,7 +10,6 @@ export function createRandomarr(len, from, to){
     return arr;
 }
     
-let arr = createRandomarr(100, 10, 500);
 
 const _mergeArrays = (a, b) => {
         const c = []
@@ -42,7 +41,7 @@ export function mergeSort(arr){
     return _mergeArrays(sorted_l, sorted_r);
 }
 
-export function quicksort(array) {
+export function quickSort(array) {
   if (array.length <= 1) {
     return array;
   }
@@ -56,14 +55,35 @@ export function quicksort(array) {
     array[i] < pivot ? left.push(array[i]) : right.push(array[i]);
   }
 
-  return quicksort(left).concat(pivot, quicksort(right));
+  return quickSort(left).concat(pivot, quickSort(right));
 };
 
-// let s = performance.now();
- let ar2 = quicksort(arr);
-// let f = performance.now();
-// console.log(f-s);
-console.log(ar2);
 
+
+export function bubbleSort(arr){
+  var i, j;
+  var len = arr.length;    
+  var isSwapped = false;
+
+  for(i =0; i < len; i++){      
+    isSwapped = false;
+      
+    for(j = 0; j < len; j++){
+        if(arr[j] > arr[j + 1]){
+          var temp = arr[j]
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+          isSwapped = true;
+        }
+    }     
+      
+    if(!isSwapped){
+      break;
+    }
+  }
+    
+  return arr;
+
+}
 
 
